@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hey this is our app</h1>
+      <p>Sonny boy</p>
       <Row title="ORIGINAL MOVIES" fetchUrl={requests.fetchTopRatedMovies} />
       <Row title="TRENDING MOVIES" fetchUrl={requests.fetchTrendingMovies} />
     </div>

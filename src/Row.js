@@ -17,6 +17,7 @@ function Row({title, fetchUrl}) {
         fecthData();
     }, [fetchUrl]);
 
+  // console.table(movies)
 
     return (
         <div className="row">
@@ -26,7 +27,7 @@ function Row({title, fetchUrl}) {
                 {/* posters  */}
                 
                 {movies.map(movie => (
-                    <img scr={`${base_url}${movie.poster_path}`} alt={movie.name}/>
+                    <img src={`${base_url}${movie.poster_path}`} alt={movie.name}/>
                 ))}
                  </div>   
         </div>
