@@ -7,7 +7,8 @@ import movieTrailer from 'movie-trailer';
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 
-function Row({title, fetchUrl,isLargeRow}) {
+function Row({title, fetchUrl,isLargeRow})
+{
     const [movies, setMovies] = useState([]);
     const [trailerUrl,setTrailerUrl] = useState("");
 
@@ -42,7 +43,7 @@ function Row({title, fetchUrl,isLargeRow}) {
                 const urlParams = new URLSearchParams(new URL(url).search);
                 setTrailerUrl(urlParams.get("v"));
             })
-            .catch(error => console.log(error));
+            .catch((error) => console.log(error));
         }
     };
 
@@ -59,10 +60,11 @@ function Row({title, fetchUrl,isLargeRow}) {
                     src={`${base_url}${
                         isLargeRow ? movie.poster_path : movie.backdrop_path
                     }`} 
-                    alt={movie.name}/>
+                    alt={movie.name}
+                    />
                 ))}
                  </div>   
-                 {trailerUrl && <YouTube videoId={trailerUrl} opts={opts}></YouTube>
+                 {trailerUrl && <YouTube videoId={trailerUrl} opts={opts}/>}
                  </div>
     );
 }
