@@ -1,0 +1,26 @@
+.row{
+    margin-left: 10px;
+    color: CAD2C5;
+}
+.row_posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 30px;
+}
+
+/* .row_posters::-webkit-scrollbar {
+    display: none;
+} */
+.row_poster {
+    object-fit: contain;
+    width: 100%;
+    max-height: 200px;
+    margin-right: 10px;
+    transition: transform 450ms;
+}
+
+.row_poster:hover{
+    transform: scale(1.20);
+    opacity: 1;
+}
