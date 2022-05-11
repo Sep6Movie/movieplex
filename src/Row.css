@@ -4,14 +4,15 @@
 }
 .row_posters {
     display: flex;
-    overflow-y: hidden;
+   /* overflow-y: hidden; */
     overflow-x: scroll;
     padding: 30px;
 }
 
-/* .row_posters::-webkit-scrollbar {
+.row_posters::-webkit-scrollbar {
     display: none;
-} */
+}
+
 .row_poster {
     object-fit: contain;
     width: 100%;

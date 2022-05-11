@@ -27,6 +27,7 @@ function Row({title, fetchUrl}) {
     }
 
     const handleClick = (movie) => {
+        console.log(trailerUrl);
         if(trailerUrl) {
             setTrailerUrl("");
         } else {
@@ -38,6 +39,7 @@ function Row({title, fetchUrl}) {
             .catch((error) => console.log(error));
         }
     }
+    
 
   return (
       <div className='row'>
