@@ -1,36 +1,31 @@
-import React, { useEffect, useState } from "react";
-import "./Nav.css";
+import React, { useEffect, useState } from 'react'
+import "./Nav.css"
 
-function Nav()
-{
-    useEffect(() => 
-    {
-        const [show,handleShow] = useState(false);
+function Nav() {
+  
+  const[show, handleShow] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        handleShow(true);
+      } else handleShow(false);
+    });
+    return () => {
+      window.removeEventListener("scroll");
+    };
+  }, []);
 
-        window.addEventListener("scoll",()=>
-        {
-            if (window.scrollY > 100) {
-                handleShow(true);
-            } else 
-            handleShow(false);
-        });
-        return () => 
-        {
-            window.removeEventListener("scroll");
-        };
-    }, []);
+  return (
+    <div className={`nav ${show && "nav_barscroll"}`}>
+        <img className='nav_logo'
+        src="https://www.pngitem.com/pimgs/m/80-801174_production-clipart-icon-png-transparent-transparent-background-movie.png"
+        alt="logo"/>
 
-    return (
-    <div className={`nav ${show && "nav_black"}`}>
-        <img
-        className="nav_logo"
-        src="https://cdn.hashnode.com/res/hashnode/image/upload/v1647410910018/spTELtuIz.jpeg"
-        alt="Netflix Logo"/>
-        <img
-        className="nav_avatar"
-        src="https://ps.w.org/metronet-profile-picture/assets/icon-256x256.png?rev=2464419"
-        alt="Netflix Avatar"/>
-    </div>);
+        <img className='nav_user'
+        src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+        alt="logo"/>
+    </div>
+  )
 }
 
 export default Nav

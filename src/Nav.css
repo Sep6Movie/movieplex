@@ -4,34 +4,28 @@
     top: 0;
     width: 100%;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
     height: 30px;
     z-index: 1;
 
     transition-timing-function: ease-in;
-    transition: all 0.5s;
-
-
-    /*display: flex;
-    //justify-content: space-between;*/
+    transition: all 0.3s;
 }
 
-.nav_black
-{
-    background-color: #111;
+.nav_barscroll{
+    background-color: red;
 }
-
-.nav_logo
-{
+.nav_logo{
     position: fixed;
-    left: 20;
-    width: 80px;
+    left: 20px;
+    width: 50px;
     object-fit: contain;
 }
 
-.nav_avatar
-{
+.nav_user{
     position: fixed;
-    right: 0;
+    right: 20px;
     width: 30px;
     object-fit: contain;
 }
