@@ -5,17 +5,20 @@ import requests from './api/requests';
 import Nav from './Nav';
 import SignUp from './SignUp';
 import { Container } from 'react-bootstrap';
+import { AuthProvider } from '../contexts/AuthContext';
 
 function App() {
   return (
     <div className="app">
       <Nav />
+      <AuthProvider>
       <Container className="d-flex align-items-center justify-content-center"
       style={{minHeight: "100vh"}}>
         <div className='w-100' style={{ maxWidth: '400px'}} >
       <SignUp />
         </div>
       </Container>
+      </AuthProvider>
       <Row title="TRENDING MOVIES" fetchUrl={requests.fetchTrending} />
       <Row title="TOP RATED MOVIES" fetchUrl={requests.fetchTopRated}/>
       <Row title="Action" fetchUrl={requests.fetchActionMovies}/>
