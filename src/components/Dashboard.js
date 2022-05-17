@@ -1,11 +1,13 @@
 import React from 'react'
 import Row from './Row';
 import requests from './api/requests';
+import Nav from './Nav';
 
 
 function Dashboard() {
   return (
       <div>
+            <Nav />
     <Row title="TRENDING MOVIES" fetchUrl={requests.fetchTrending} />
     <Row title="TOP RATED MOVIES" fetchUrl={requests.fetchTopRated}/>
     <Row title="Action" fetchUrl={requests.fetchActionMovies}/>
