@@ -9,9 +9,9 @@
     padding: 30px;
 }
 
-.row_posters::-webkit-scrollbar {
+/* .row_posters::-webkit-scrollbar {
     display: none;
-}
+} */
 
 .row_poster {
     object-fit: contain;
