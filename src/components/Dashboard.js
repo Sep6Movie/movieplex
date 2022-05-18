@@ -7,7 +7,7 @@ import Nav from './Nav';
 function Dashboard() {
   return (
       <div>
-            <Nav />
+    <Nav />
     <Row title="TRENDING MOVIES" fetchUrl={requests.fetchTrending} />
     <Row title="TOP RATED MOVIES" fetchUrl={requests.fetchTopRated}/>
     <Row title="Action" fetchUrl={requests.fetchActionMovies}/>
