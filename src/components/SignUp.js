@@ -4,10 +4,11 @@ import { useAuth } from "../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Signup() {
+    const diaplayNameRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup } = useAuth()
+    const { signup , currentUser } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
@@ -27,7 +28,6 @@ export default function Signup() {
       } catch {
         setError("Failed to create an account")
       }
-  
       setLoading(false)
     }
   
@@ -37,10 +37,15 @@ export default function Signup() {
           <Card.Body>
             <h2 className="text-center mb-4">Sign Up</h2>
             {error && <Alert variant="danger">{error}</Alert>}
+            {JSON.stringify({currentUser})}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="name">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="displayName" ref={diaplayNameRef} required />
               </Form.Group>
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
