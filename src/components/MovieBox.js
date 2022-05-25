@@ -44,8 +44,6 @@ const MovieBox = ({titel, credits, poster_path, vote_average, vote_count, releas
           <br></br>
           <h6>Overview</h6>
           <p>{overview}</p>
-       
-
           <div>
             <h5>Trailer</h5>
 

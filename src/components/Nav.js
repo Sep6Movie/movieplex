@@ -10,17 +10,6 @@ function Nav() {
   const [query, setQuery]=useState('');
   const [movies, setMovies]=useState([]);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     if (window.scrollY > 100) {
-  //       handleShow(true);
-  //     } else handleShow(false);
-  //   });
-  //   // return () => {
-  //   //   window.removeEventListener("scroll");
-  //   // };
-  // }, []);
-
   useEffect(() => {
     fetch(API_URL)
     .then((res)=>res.json())
