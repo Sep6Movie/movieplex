@@ -14,7 +14,7 @@
 }
 
 .nav_barscroll{
-    background-color: red;
+    background-color: rgb(0, 0, 0);
 }
 .nav_logo{
     position: fixed;
@@ -28,4 +28,5 @@
     right: 20px;
     width: 30px;
     object-fit: contain;
+    color: aliceblue;
 }
