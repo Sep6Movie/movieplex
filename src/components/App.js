@@ -6,7 +6,6 @@ import UserProfile from './UserProfile';
 import Dashboard from './Dashboard';
 import { AuthProvider } from '../contexts/AuthContext';
 import { BrowserRouter as Router, Routes as Switch, Route,} from "react-router-dom";
-import UpdateProfile from './UpdateProfile';
 
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
         <Route path="signup" element={<SignUp/>} />
         <Route path="login" element={<Login/>} />
         <Route path="profile" element={<UserProfile/>} />
-        <Route path="update-profile" element={<UpdateProfile/>} />
         </Switch>
       </AuthProvider>
       </Router>

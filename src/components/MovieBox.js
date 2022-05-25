@@ -45,12 +45,12 @@ const MovieBox = ({titel, credits, poster_path, vote_average, vote_count, releas
           <br></br>
           <h6>Overview</h6>
           <p>{overview}</p>
-          {movies.map(movie =>(
+          {/* {movies.map(movie =>(
               <img 
               key={movie.id}
               className='row_actors'
               src={`${base_url}${movie.poster_path}`} alt={movie.name}/>
-          ))}
+          ))} */}
           <div>
           <h5>Actors</h5>
           <button type="button" className='btn btn-dark' onClick={findActors} >Actors</button>
