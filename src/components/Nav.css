@@ -8,25 +8,16 @@
     justify-content: space-between;
     height: 30px;
     z-index: 1;
-
     transition-timing-function: ease-in;
     transition: all 0.3s;
 }
 
-.nav_barscroll{
-    background-color: rgb(0, 0, 0);
-}
-.nav_logo{
-    position: fixed;
-    left: 20px;
-    width: 50px;
-    object-fit: contain;
-}
 
-.nav_user{
-    position: fixed;
-    right: 20px;
-    width: 30px;
-    object-fit: contain;
-    color: aliceblue;
+
+.NavBox{
+    width: "100%";
+    position: "fixed";
+    bottom: 0;
+    background-color: rgb(57, 68, 90);
+    z-index: 100;
 }

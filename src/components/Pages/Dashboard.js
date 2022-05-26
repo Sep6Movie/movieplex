@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Nav from './Nav';
-import MovieBox from './MovieBox';
+import Nav from '../Nav';
+import MovieBox from '../MovieBox';
+import MainNavBar from '../MainNavbar'
 import './Dashboard.css'
 
 const API_URL="https://api.themoviedb.org/3/movie/popular?api_key=e07a0c394bdeedde413d9b1e4ee9357e"
