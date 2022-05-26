@@ -19,12 +19,13 @@ function Dashboard() {
   }, [])
 
   return (
-    <><Nav></Nav>
+    <>
+    <Nav></Nav>
       <div>
         <div className='container'>
           <div className='grid'>
-        {movies.map((movieReq)=> 
-        <MovieBox key={movieReq.id} {...movieReq}/>)}
+        {/* {movies.map((movieReq)=> 
+        <MovieBox key={movieReq.id} {...movieReq}/>)} */}
         </div>
     </div>
     </div>

@@ -3,7 +3,7 @@ import {Navbar,Container,Nav as Nav1,Form, FormControl,Button } from 'react-boot
 
 function NavUser() {
   return (
-    <Navbar bg="dark" expand="lg" variant='dark' >
+    <Navbar bg="dark" variant='dark' >
     <Container fluid>
   <Navbar.Brand href="/">MoviePlex</Navbar.Brand>
   <Navbar.Brand href="/profile">Profile</Navbar.Brand>

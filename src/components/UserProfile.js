@@ -48,13 +48,16 @@ export default function UserProfile() {
       <Card.Body>
         {error && <Alert variant="danger">{error}</Alert>}
         <strong>Email:</strong> {currentUser.email}
-        <div className="fields">
+        {/* <div className="fields">
       <input type="file" onChange={handleChange} />
       <button disabled={loading || !photo} onClick={handleClick}>Upload</button>
      <img src={photoURL} alt="Avatar" className="img-fluid rounded-circle img-thumbnail rounded float-right" />
-     </div>
+     </div> */}
     </Card.Body>
     </Card>
+    <div> 
+      <h3>Favorite movies HERE </h3>
+    </div>
         {/* <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
           Update Profile
         </Link> */}
