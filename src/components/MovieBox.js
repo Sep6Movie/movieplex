@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import { Modal} from 'react-bootstrap';
-import './Dashboard.css'
+import './Pages/Dashboard.css'
 
 const base_url="https://image.tmdb.org/t/p/w500";
 const API_URL="https://api.themoviedb.org/3/movie/"
 const API_KEY="credits?api_key=e07a0c394bdeedde413d9b1e4ee9357e"
 
 
-const MovieBox = ({titel, credits, poster_path, vote_average, vote_count, release_date, overview})=> {
+const MovieBox = ({titel, name, poster_path, vote_average, vote_count, release_date, overview})=> {
   const [show, setShow]=useState(false);
   const [actors, findActor] = useState([]);
 
@@ -27,6 +27,11 @@ const MovieBox = ({titel, credits, poster_path, vote_average, vote_count, releas
       console.log("findActor " + e);
     }
   }
+
+  function likeMovie() {
+    console.log("CLICKED LIKE ");
+}
+
   return (
 
     <div className="card text-center bg-secondary mb-3" >
@@ -47,8 +52,10 @@ const MovieBox = ({titel, credits, poster_path, vote_average, vote_count, releas
           <div>
             <h5>Trailer</h5>
           </div>
+          <button className=' btn btn-dark btn-sm'>Like</button>
+          {/* <button className='btn-sm'><img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="my image" onClick={likeMovie} /></button> */}
           <h5>Director: {null}</h5>
-          <h5>Actors</h5>
+          <h5>Actors {name}</h5>
           </Modal.Body>
           </Modal>  
      </div>

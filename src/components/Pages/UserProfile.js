@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import {Card, Button, Alert, Image} from 'react-bootstrap'
-import { upload, useAuth } from "../contexts/AuthContext"
+import { upload, useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
-import NavUser from "./NavUser"
+import NavUser from "../NavUser"
 
 export default function UserProfile() {
     const [error, setError] = useState("")

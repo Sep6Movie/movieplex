@@ -2,13 +2,22 @@ import React, {useEffect, useState } from 'react'
 import {Navbar,Container,Nav as Nav1,Form, FormControl,Button } from 'react-bootstrap';
 import "./Nav.css"
 import MovieBox from './MovieBox';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import Box from '@mui/material/Box';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
 
 const API_URL="https://api.themoviedb.org/3/movie/popular?api_key=e07a0c394bdeedde413d9b1e4ee9357e";
 const API_SEARCH="https://api.themoviedb.org/3/search/movie?api_key=e07a0c394bdeedde413d9b1e4ee9357e&query";
 
+
 function Nav() {  
   const [query, setQuery]=useState('');
   const [movies, setMovies]=useState([]);
+  const [value, setValue] = React.useState(0);
 
   useEffect(() => {
     fetch(API_URL)
@@ -40,18 +49,23 @@ function Nav() {
 
   return (
     <>
-    <Navbar bg="dark" expand="lg" variant='dark' >
+    <Navbar bg="rgb(46, 51, 66)" expand="lg" variant='dark' >
 <Container fluid>
-  <Navbar.Brand href="/">MoviePlex</Navbar.Brand>
-  <Navbar.Brand href="/profile">Profile</Navbar.Brand>
-  <Navbar.Brand href="">Explore</Navbar.Brand>
-  <Navbar.Toggle aria-controls='navbarScroll'></Navbar.Toggle>
-    <Navbar.Collapse id ="navbarScroll">
-    <Nav1 
-            className="me-auto my-2 my-lg-3"
-            style={{maxHeight:'100px'}}
-            navbarScroll></Nav1>
+<Box   sx={{ width: 1000 }}>
+      <BottomNavigation className="NavBox"
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      >
+        <BottomNavigationAction  label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction  label="Trending" icon={<WhatshotIcon />} />
+        <BottomNavigationAction  label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Profile" icon={<PersonIcon />} />
 
+      </BottomNavigation>
+    </Box>
 <Form className="d-flex" onSubmit={searchMovie} autoComplete="on">
               <FormControl
               type="search"
@@ -63,12 +77,8 @@ function Nav() {
               ></FormControl>
               <Button variant="secondary" type="submit">Search</Button>
             </Form>
-    </Navbar.Collapse>
 </Container>
     </Navbar>
-    {/* <img className='nav_user'
-        src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
-        alt="logo"/> */}
       <div>
       {movies.length > 0 ?(
         <div className="container">
