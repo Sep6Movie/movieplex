@@ -4,10 +4,10 @@ import Box from '@mui/material/Box';
 import axios from "axios";
 import Button from '@mui/material/Button';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-// import "./ContentModal.css";
-import { img_300, unavailable, img_500, unavailableLandscape } from "../../config";
+import "./ContentModal.css";
+import { img_300, img_500, unavailableLandscape, unavailable} from "../../config";
 import { ClassNames } from "@emotion/react";
-//import Carousel from "../Carousel/Carousel";
+import Carousel from "../ActorCarousel"
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
@@ -67,10 +67,11 @@ export default function ContentModal({ children, media_type, id }) {
 
   return (
     <>
-    <div className="media">
-    <button type="button"  onClick={handleOpen}>
+  
+    <div className="media" type="button"  
+    onClick={handleOpen}>
       {children}
-    </button>
+    </div>
     <Modal
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
@@ -93,6 +94,16 @@ export default function ContentModal({ children, media_type, id }) {
                   className="ContentModal__portrait"
                 />
 
+<img
+                  src={
+                    content.backdrop_path
+                      ? `${img_500}/${content.backdrop_path}`
+                      : unavailableLandscape
+                  }
+                  alt={content.name || content.title}
+                  className="ContentModal__landscape"
+                />
+
 <div className="ContentModal__about">
                   <span className="ContentModal__title">
                     {content.name || content.title} (
@@ -110,7 +121,11 @@ export default function ContentModal({ children, media_type, id }) {
                   <span className="ContentModal__description">
                     {content.overview}
                   </span>
-
+                <br></br>
+                    <h2>Cast</h2>
+<div>
+  <Carousel media_type={media_type} id={id}></Carousel>
+</div>
                   <Button
                     variant="contained"
                     startIcon={<YouTubeIcon />}
@@ -127,7 +142,6 @@ export default function ContentModal({ children, media_type, id }) {
       </Box>
 
     </Modal>
-  </div>
   </>
   );
 }
