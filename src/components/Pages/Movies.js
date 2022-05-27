@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import PageManager from "../PageManager";
 import MovieContent from "../MovieContent";
 import Nav from "../Nav";
+import Genres from "../Genres";
+
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
 
@@ -24,7 +26,6 @@ const {data} = await axios.get(
 
   useEffect(() => {
     fetchMovies();
-    // eslint-disable-next-line
   }, [page]);
 
 
@@ -39,11 +40,13 @@ const {data} = await axios.get(
               poster={c.poster_path}
               title={c.title || c.name}
               date={c.first_air_date || c.release_date}
-              media_type={c.media_type}
+              media_type="movie"
               vote_average={c.vote_average} />
           ))}
       </div>
-      <PageManager setPage={setPage}></PageManager>
+      {numOfPages > 1 && (
+        <PageManager setPage={setPage} numOfPages={numOfPages} />
+      )}
     </div>
     
   );

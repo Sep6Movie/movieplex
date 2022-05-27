@@ -22,13 +22,11 @@ const Series = () => {
     );
     setContent(data.results);
     setNumOfPages(data.total_pages);
-    // console.log(data);
   };
 
   useEffect(() => {
     window.scroll(0, 0);
     fetchSeries();
-    // eslint-disable-next-line
   }, [genreforURL, page]);
 
   return (
