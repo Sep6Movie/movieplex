@@ -8,6 +8,8 @@ import UserProfile from './Pages/UserProfile';
 import Dashboard from './Pages/Dashboard';
 import { AuthProvider } from '../contexts/AuthContext';
 import { BrowserRouter as Router, Routes as Switch, Route,} from "react-router-dom";
+import Search from './Pages/Search';
+import Nav from './Nav';
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
         <Route path="signup" element={<SignUp/>} />
         <Route path="login" element={<Login/>} />
         <Route path="profile" element={<UserProfile/>} />
+        <Route path="search" element={<Search/>} />
         </Switch>
       </AuthProvider>
       </Router>

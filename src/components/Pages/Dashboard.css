@@ -14,3 +14,8 @@
     justify-content: center;
   }
 
+  .dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
