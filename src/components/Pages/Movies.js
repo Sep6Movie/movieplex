@@ -2,9 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import PageManager from "../PageManager";
 import MovieContent from "../MovieContent";
-import Genres from "../Genres";
-
+import Nav from "../Nav";
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
+
 
 const Movies = () => {
   const [genres, setGenres] = useState([]);
@@ -12,7 +12,7 @@ const Movies = () => {
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState();
-  //const genreforURL = useGenre(selectedGenres);
+ // const genreforURL = useGenre(selectedGenres);
 
   const fetchMovies = async () => {
 const {data} = await axios.get(
@@ -29,17 +29,8 @@ const {data} = await axios.get(
 
 
   return (
-
     <div>
       <span className="pageTitle">Movies</span>
-      <Genres
-        type="movie"
-        selectedGenres={selectedGenres}
-        setSelectedGenres={setSelectedGenres}
-        genres={genres}
-        setGenres={setGenres}
-        setPage={setPage}
-      />
       <div className="dashboard">
         {content?.map((c) => (
             <MovieContent
@@ -48,12 +39,11 @@ const {data} = await axios.get(
               poster={c.poster_path}
               title={c.title || c.name}
               date={c.first_air_date || c.release_date}
-              media_type="movie"
+              media_type={c.media_type}
               vote_average={c.vote_average} />
           ))}
       </div>
-      {numOfPages > 1 && (
-        <PageManager setPage={setPage} numOfPages={numOfPages} />  )}
+      <PageManager setPage={setPage}></PageManager>
     </div>
     
   );

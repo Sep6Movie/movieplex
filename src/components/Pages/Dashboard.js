@@ -19,7 +19,7 @@ const Dashboard = () => {
     );
 
     setContent(data.results);
-    console.table(data);
+    // console.table(data);
   };
 
   useEffect(() => {

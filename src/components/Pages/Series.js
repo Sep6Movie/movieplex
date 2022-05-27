@@ -4,6 +4,7 @@ import Genres from "../Genres";
 import PageManager from "../PageManager";
 import MovieContent from "../MovieContent";
 import useGenre from "../hooks/useGenre";
+import Nav from "../Nav";
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
@@ -32,16 +33,8 @@ const Series = () => {
 
   return (
     <div>
-      <span className="pageTitle">Discover Series</span>
-      <Genres
-        type="tv"
-        selectedGenres={selectedGenres}
-        setSelectedGenres={setSelectedGenres}
-        genres={genres}
-        setGenres={setGenres}
-        setPage={setPage}
-      />
-      <div className="trending">
+      <span className="pageTitle">Series</span>
+      <div className="dashboard">
         {content &&
           content.map((c) => (
             <MovieContent
