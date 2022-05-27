@@ -56,7 +56,7 @@ const Genres = ({
           onDelete={() => handleRemove(genre)}
         />
       ))}
-      {genres.map((genre) => (
+      {/* {genres.map((genre) => (
         <Chip
           style={{ margin: 2 }}
           label={genre.name}
@@ -65,7 +65,7 @@ const Genres = ({
           size="small"
           onClick={() => handleAdd(genre)}
         />
-      ))}
+      ))} */}
     </div>
   );
 };

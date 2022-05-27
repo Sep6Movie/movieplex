@@ -15,15 +15,15 @@ import {useNavigate } from "react-router-dom"
 const API_URL="https://api.themoviedb.org/3/movie/popular?api_key=e07a0c394bdeedde413d9b1e4ee9357e";
 const API_SEARCH="https://api.themoviedb.org/3/search/movie?api_key=e07a0c394bdeedde413d9b1e4ee9357e&query";
 
-// const useStyles = makeStyles ({
-//   root: {
-//     width: "100%",
-//     position: "fixed",
-//     bottom: 0,
-//     backgroundColor: "#2d313a",
-//     zIndex: 100,
-//   },
-// });
+const style = {
+  root: {
+    width: "100%",
+    position: "fixed",
+    bottom: 0,
+    backgroundColor: "#2d313a",
+    zIndex: 100,
+  },
+};
 
 function Nav() {  
   const [movies, setMovies]=useState([]);
@@ -48,7 +48,7 @@ function Nav() {
 
   return (
     <>
-    <Navbar bg="rgb(46, 51, 66)" expand="lg" variant='dark' >
+    <Navbar sx={style} bg="rgb(46, 51, 66)" expand="lg" variant='dark' >
     <Container fluid>
     <Box   sx={{ width: 1000, bgcolor: 'dark',
           boxShadow: 1,

@@ -1,11 +1,11 @@
 import React from 'react'
 import { img_300, unavailable } from "../config";
-import "./MovieContent.css";
-
+import ContentModal from './Content/ContentModal';
+import "./MovieContent.css"
 
 const MovieContent = ({
     id,
-    poster,
+    poster, 
     title,
     date,
     media_type,
@@ -13,7 +13,7 @@ const MovieContent = ({
     vote_count,
   }) => {
     return (
-        <div className='media'>
+        <ContentModal media_type={media_type} id={id}>
           <img
           className="poster"
           src={poster ? `${img_300}${poster}` : unavailable}
@@ -26,8 +26,8 @@ const MovieContent = ({
         <div className='votebox'>{vote_average} </div>
         <p className='votecount'>{vote_count}</p>
         </span>
-        </div>
+        </ContentModal>
     );
   };
 
-export default MovieContent
+export default MovieContent 
