@@ -8,6 +8,7 @@ import "./ContentModal.css";
 import { img_300, img_500, unavailableLandscape, unavailable} from "../../config";
 import { ClassNames } from "@emotion/react";
 import Carousel from "../ActorCarousel"
+import CarouselDir from "../DirectorCarousel"
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
@@ -87,7 +88,7 @@ export default function ContentModal({ children, media_type, id }) {
       <img
                   src={
                     content.poster_path
-                      ? `${img_300}/${content.poster_path}`
+                      ? `${img_500}/${content.poster_path}`
                       : unavailable
                   }
                   alt={content.name || content.title}
@@ -122,9 +123,13 @@ export default function ContentModal({ children, media_type, id }) {
                     {content.overview}
                   </span>
                 <br></br>
-                    <h2>Cast</h2>
+                    <h6>Cast</h6>
 <div>
   <Carousel media_type={media_type} id={id}></Carousel>
+</div>
+<h6>Crew</h6>
+<div>
+  <CarouselDir media_type={media_type} id={id}></CarouselDir>
 </div>
                   <Button
                     variant="contained"

@@ -21,6 +21,7 @@ const Gallery = ({ id, media_type }) => {
         onDragStart={handleDragStart}
         className="carouselItem__img"
       />
+      <b className="carouselItem__job">{c?.job}</b>
       <b className="carouselItem__txt">{c?.name}</b>
     </div>
   ));
@@ -41,12 +42,11 @@ const Gallery = ({ id, media_type }) => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${API_KEY}&language=en-US`
     );
-    setCredits(data.cast);
+    setCredits(data.crew);
   };
 
   useEffect(() => {
     fetchCredits();
-    // eslint-disable-next-line
   }, []);
 
   return (

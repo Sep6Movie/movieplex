@@ -36,7 +36,7 @@
     flex-direction: column;
     font-family: "Roboto", sans-serif;
     justify-content: space-evenly;
-    font-weight: 300;
+    font-weight: 200;
   }
 
   .ContentModal__title {
@@ -49,11 +49,11 @@
 
   .ContentModal__description {
     display: flex;
-    height: 40%;
+    height: 80%;
     overflow-y: scroll;
     padding: 15px;
     border-radius: 20px;
-    scrollbar-width: thin; /* Firefox */
+    scrollbar-width: thin; 
     box-shadow: inset 0 0 5px #000000;
     text-align: justify;
   }
@@ -84,6 +84,6 @@
       font-size: 3.5vw;
     }
     .ContentModal__description {
-      font-size: 22px;
+      font-size: 18px;
     }
   }
