@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from '@mui/material/Box';
 import axios from "axios";
-import "./ContentModal.css";
+import Button from '@mui/material/Button';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+// import "./ContentModal.css";
 import { img_300, unavailable, img_500, unavailableLandscape } from "../../config";
 import { ClassNames } from "@emotion/react";
 //import Carousel from "../Carousel/Carousel";
@@ -90,8 +92,38 @@ export default function ContentModal({ children, media_type, id }) {
                   alt={content.name || content.title}
                   className="ContentModal__portrait"
                 />
+
+<div className="ContentModal__about">
+                  <span className="ContentModal__title">
+                    {content.name || content.title} (
+                    {(
+                      content.first_air_date ||
+                      content.release_date ||
+                      "-----"
+                    ).substring(0, 4)}
+                    )
+                  </span>
+                  {content.tagline && (
+                    <i className="tagline">{content.tagline}</i>
+                  )}
+
+                  <span className="ContentModal__description">
+                    {content.overview}
+                  </span>
+
+                  <Button
+                    variant="contained"
+                    startIcon={<YouTubeIcon />}
+                    color="secondary"
+                    target="__blank"
+                    href={`https://www.youtube.com/watch?v=${video}`}
+                  >
+                    Watch the Trailer
+                  </Button>
+                </div>
                 
       </div>)}
+      
       </Box>
 
     </Modal>
