@@ -7,8 +7,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
+import MovieIcon from '@mui/icons-material/Movie';
+import SlideshowIcon from '@mui/icons-material/Slideshow';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
+import { Link, useNavigate } from "react-router-dom"
 
 const API_URL="https://api.themoviedb.org/3/movie/popular?api_key=e07a0c394bdeedde413d9b1e4ee9357e";
 const API_SEARCH="https://api.themoviedb.org/3/search/movie?api_key=e07a0c394bdeedde413d9b1e4ee9357e&query";
@@ -18,6 +21,7 @@ function Nav() {
   const [query, setQuery]=useState('');
   const [movies, setMovies]=useState([]);
   const [value, setValue] = React.useState(0);
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch(API_URL)
@@ -27,6 +31,18 @@ function Nav() {
       setMovies(data.results);
     })
   }, [])
+
+  useEffect(() => {
+    if (value === 0) {
+      navigate("/");
+    } else if (value === 1) {
+      navigate("/movies");
+    } else if (value === 2) {
+      navigate("/series");
+    } else if (value === 3) {
+      navigate("/profile");
+    }
+  }, [value, navigate]);
 
   const searchMovie = async(e)=>{
     e.preventDefault();
@@ -51,7 +67,9 @@ function Nav() {
     <>
     <Navbar bg="rgb(46, 51, 66)" expand="lg" variant='dark' >
 <Container fluid>
-<Box   sx={{ width: 1000 }}>
+<Box   sx={{ width: 1000, bgcolor: 'dark',
+          boxShadow: 1,
+          borderRadius: 2, }}>
       <BottomNavigation className="NavBox"
         showLabels
         value={value}
@@ -60,8 +78,9 @@ function Nav() {
         }}
       >
         <BottomNavigationAction  label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction  label="Trending" icon={<WhatshotIcon />} />
-        <BottomNavigationAction  label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction  label="Movies" icon={<MovieIcon />} />
+        <BottomNavigationAction  label="Series" icon={<SlideshowIcon />} />
+        {/* <BottomNavigationAction  label="Favorites" icon={<FavoriteIcon />} /> */}
         <BottomNavigationAction label="Profile" icon={<PersonIcon />} />
 
       </BottomNavigation>
@@ -82,10 +101,10 @@ function Nav() {
       <div>
       {movies.length > 0 ?(
         <div className="container">
-        <div className="grid">
+        {/* <div className="grid">
           {movies.map((movieReq)=>
           <MovieBox key={movieReq.id} {...movieReq}/>)}
-            </div>
+            </div> */}
     </div>
       ):(
         <h2>No Movies Found</h2>

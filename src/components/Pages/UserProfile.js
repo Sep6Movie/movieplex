@@ -44,8 +44,11 @@ export default function UserProfile() {
     <>
     <NavUser/>
         <h2 className="text-center mb-4">Profile</h2>
-        <Card>
-      <Card.Body>
+        <div>
+        <strong>Email:</strong> {currentUser.email}
+        </div>
+        {/* <Card>
+      <Card.Body classname="card text-black bg-primary mb-3">
         {error && <Alert variant="danger">{error}</Alert>}
         <strong>Email:</strong> {currentUser.email}
         {/* <div className="fields">
@@ -53,8 +56,8 @@ export default function UserProfile() {
       <button disabled={loading || !photo} onClick={handleClick}>Upload</button>
      <img src={photoURL} alt="Avatar" className="img-fluid rounded-circle img-thumbnail rounded float-right" />
      </div> */}
-    </Card.Body>
-    </Card>
+    {/* </Card.Body>
+    </Card> */} 
     <div> 
       <h3>Favorite movies HERE </h3>
     </div>
