@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Nav from '../Nav';
 import './Dashboard.css'
 import axios from 'axios';
-import requests from '../api/requests';
-import MovieBox from '../MovieBox';
 import MovieContent from '../MovieContent';
 import PageManager from '../PageManager';
 
@@ -17,8 +15,9 @@ const Dashboard = () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${page}`
     );
-
+   
     setContent(data.results);
+    console.log(data)
     // console.table(data);
   };
 

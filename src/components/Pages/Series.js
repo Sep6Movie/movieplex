@@ -32,6 +32,14 @@ const Series = () => {
   return (
     <div>
       <span className="pageTitle">Series</span>
+      <Genres
+        type="tv"
+        selectedGenres={selectedGenres}
+        setSelectedGenres={setSelectedGenres}
+        genres={genres}
+        setGenres={setGenres}
+        setPage={setPage}
+      />
       <div className="dashboard">
         {content &&
           content.map((c) => (

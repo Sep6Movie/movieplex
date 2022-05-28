@@ -33,19 +33,16 @@ const Genres = ({
     setGenres(data.genres);
   };
 
-  console.log(genres);
-
   useEffect(() => {
     fetchGenres();
-
     return () => {
       setGenres({}); 
     };
   }, []);
 
   return (
-      <div>
-       {selectedGenres.map((genre) => (
+    <div style={{ padding: "6px 0" }}>
+      {selectedGenres.map((genre) => (
         <Chip
           style={{ margin: 2 }}
           label={genre.name}
@@ -56,7 +53,7 @@ const Genres = ({
           onDelete={() => handleRemove(genre)}
         />
       ))}
-      {/* {genres.map((genre) => (
+      {genres.map((genre) => (
         <Chip
           style={{ margin: 2 }}
           label={genre.name}
@@ -65,7 +62,7 @@ const Genres = ({
           size="small"
           onClick={() => handleAdd(genre)}
         />
-      ))} */}
+      ))}
     </div>
   );
 };
