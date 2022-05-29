@@ -5,10 +5,15 @@ import axios from "axios";
 import Button from '@mui/material/Button';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import "./ContentModal.css";
-import { img_300, img_500, unavailableLandscape, unavailable} from "../../config";
+import { img_500, unavailableLandscape, unavailable} from "../../config";
 import { ClassNames } from "@emotion/react";
 import Carousel from "../ActorCarousel"
 import CarouselDir from "../DirectorCarousel"
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import IconButton from '@mui/material/IconButton';
+import db from "../../firebase"
+import { collection , addDoc} from '@firebase/firestore'
+import { upload, useAuth } from "../../contexts/AuthContext"
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
@@ -35,6 +40,8 @@ export default function ContentModal({ children, media_type, id }) {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
+  const [favorites, setFavorites] = useState([]);
+  const { currentUser } = useAuth()
 
   const handleOpen = () => {
     setOpen(true);
@@ -60,6 +67,15 @@ export default function ContentModal({ children, media_type, id }) {
 
     setVideo(data.results[0]?.key);
   };
+
+  const handleNewMovieToMovieList = async () => {
+    const movieID = content.id;
+    const userUID = currentUser.id;
+
+    const collectionRef = collection(db, "movielist");
+    const payload = {movieID, userUID: "5HVUeJz2taXRfHBBJE8rr1BP9O93" }
+    await addDoc(collectionRef, payload);
+  }
 
   useEffect(() => {
     fetchData();
@@ -105,6 +121,12 @@ export default function ContentModal({ children, media_type, id }) {
                   className="ContentModal__landscape"
                 />
 
+<label htmlFor="icon-button-file">
+        <IconButton color="secondary" onClick={handleNewMovieToMovieList} aria-label="like" component="span">
+          <FavoriteIcon/>
+        </IconButton>
+        <p>Like me!</p>
+      </label>
 <div className="ContentModal__about">
                   <span className="ContentModal__title">
                     {content.name || content.title} (
@@ -123,6 +145,9 @@ export default function ContentModal({ children, media_type, id }) {
                     {content.overview}
                   </span>
                 <br></br>
+
+
+
                     <h6>Cast</h6>
 <div>
   <Carousel media_type={media_type} id={id}></Carousel>
@@ -144,6 +169,7 @@ export default function ContentModal({ children, media_type, id }) {
                 
       </div>)}
       
+
       </Box>
 
     </Modal>
