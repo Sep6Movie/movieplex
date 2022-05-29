@@ -13,7 +13,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton from '@mui/material/IconButton';
 import db from "../../firebase"
 import { collection , addDoc} from '@firebase/firestore'
-import { upload, useAuth } from "../../contexts/AuthContext"
+import { useAuth } from "../../contexts/AuthContext"
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 

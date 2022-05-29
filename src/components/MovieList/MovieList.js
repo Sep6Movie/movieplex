@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { collection, onSnapshot } from '@firebase/firestore'
 import axios from "axios";
 import MovieContent from '../MovieContent';
+import { useAuth } from "../../contexts/AuthContext"
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
@@ -11,8 +12,10 @@ function MovieList() {
     const [favorites, setFavorites] = useState([{name : "Loading ...", id: "loading"}]);
     const [movieID, setMovieId] = useState("");
     const [content, setContent] = useState([]);
+    const { currentUser } = useAuth()
 
     console.log(favorites);
+
     useEffect(
         () => 
         onSnapshot(collection(db, "movielist"), (snapshot) => 
