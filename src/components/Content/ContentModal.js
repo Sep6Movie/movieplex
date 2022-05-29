@@ -70,10 +70,10 @@ export default function ContentModal({ children, media_type, id }) {
 
   const handleNewMovieToMovieList = async () => {
     const movieID = content.id;
-    const userUID = currentUser.id;
+    const userUID = currentUser.uid;
 
     const collectionRef = collection(db, "movielist");
-    const payload = {movieID, userUID: "5HVUeJz2taXRfHBBJE8rr1BP9O93" }
+    const payload = {movieID, userUID }
     await addDoc(collectionRef, payload);
   }
 
