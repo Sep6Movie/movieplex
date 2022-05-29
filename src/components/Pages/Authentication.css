@@ -1,5 +1,10 @@
-.signup-card{
-    background-color: yellowgreen;
+.card_login{
+    width: 500px;
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #a9c6ff;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
 }
 
 
@@ -11,3 +16,4 @@
     color: black;
     padding: 10px;
 }
+

@@ -29,8 +29,8 @@ export default function Login() {
 
   return (
     <>
-      <Card>
-        <Card.Body>
+      
+        <Card.Body className="card_login">
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
@@ -49,11 +49,12 @@ export default function Login() {
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>
           </div>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
+          <div className="w-100 text-center mt-2">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
+        </Card.Body>
+      
+     
     </>
   )
 }
