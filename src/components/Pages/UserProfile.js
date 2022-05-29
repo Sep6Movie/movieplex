@@ -3,6 +3,7 @@ import {Card, Button, Alert, Image} from 'react-bootstrap'
 import { upload, useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import NavUser from "../NavUser"
+import MovieList from "../MovieList/MovieList"
 
 export default function UserProfile() {
     const [error, setError] = useState("")
@@ -61,6 +62,7 @@ export default function UserProfile() {
     </Card> */} 
     <div> 
       <h3>Favorite movies HERE </h3>
+      <MovieList></MovieList>
     </div>
         {/* <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
           Update Profile

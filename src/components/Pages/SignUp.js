@@ -43,10 +43,6 @@ export default function Signup() {
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" ref={emailRef} required />
               </Form.Group>
-              <Form.Group id="name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="displayName" ref={diaplayNameRef} required />
-              </Form.Group>
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" ref={passwordRef} required />
