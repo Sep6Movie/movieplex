@@ -1,16 +1,24 @@
 import React from 'react'
 import db from "../../firebase"
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { collection, onSnapshot } from '@firebase/firestore'
 
 function MovieList() {
-    useEffect(() => {
-        onSnapshot(collection(db, "movielist"), (snapshot) => {
-            console.log(snapshot.docs.map(doc => doc.data()));
-        });
-    })
+    const [favorites, setFavorites] = useState([]);
+
+    useEffect(
+        () => 
+        onSnapshot(collection(db, "movielist"), (snapshot) => 
+        setFavorites(snapshot.docs.map(doc => doc.data()))
+        ),
+        []
+    );
+
   return (
-    <div>MovieList</div>
+    <div>
+        {favorites.map((favorite) =>
+        <p>{favorite.movieID}</p>)}
+    </div>
   )
 }
 
