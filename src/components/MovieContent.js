@@ -23,7 +23,7 @@ const MovieContent = ({
         <span className="subTitle">
         <span className="dateTitle">{date}</span>
         <div className='votebox'>{vote_average} </div>
-        <p className='votecount'>{vote_count}</p>
+        <h1 className='votecount'>{vote_count}</h1>
         </span>
         </ContentModal>
     );

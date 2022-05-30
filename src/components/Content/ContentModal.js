@@ -26,10 +26,10 @@ const style = {
   paper: {
     width: "90%",
     height: "80%",
-    backgroundColor: "#39445a",
-    border: "1px solid #282c34",
+    backgroundColor: "#ebebeb",
+    border: "1px solid #bfbfbf",
     borderRadius: 10,
-    color: "white",
+    color: "black",
     boxShadow: 25,
     p: 4,
   },

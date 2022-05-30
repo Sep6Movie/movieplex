@@ -38,9 +38,9 @@ export default function SimpleBottomNavigation() {
     >
       <BottomNavigationAction style={{ color: "black" }} label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction style={{ color: "black" }} label="Movies" icon={<MovieIcon />} />
-        <BottomNavigationAction  style={{ color: "black" }} icon={<SlideshowIcon />} />
-        <BottomNavigationAction style={{ color: "black" }} icon={<PersonIcon />} />
-        <BottomNavigationAction style={{ color: "black" }} icon={<SearchIcon />} />
+        <BottomNavigationAction  style={{ color: "black" }} label="Tv Series" icon={<SlideshowIcon />} />
+        <BottomNavigationAction style={{ color: "black" }} label="Profile" icon={<PersonIcon />} />
+        <BottomNavigationAction style={{ color: "black" }} label="Search" icon={<SearchIcon />} />
     </BottomNavigation>
   );
 }

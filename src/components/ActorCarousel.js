@@ -31,10 +31,10 @@ const Gallery = ({ id, media_type }) => {
       items: 5,
     },
     512: {
-      items: 7,
+      items: 6,
     },
     1024: {
-      items: 9,
+      items: 8,
     },
   };
 
@@ -46,6 +46,7 @@ const Gallery = ({ id, media_type }) => {
   };
 
   useEffect(() => {
+    if(items < 1)
     fetchCredits();
     // eslint-disable-next-line
   }, []);
