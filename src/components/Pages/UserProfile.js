@@ -4,6 +4,7 @@ import { upload, useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import Nav from "../Nav"
 import MovieList from "../MovieList/MovieList"
+import "./UserProfile.css"
 
 export default function UserProfile() {
     const [error, setError] = useState("")
@@ -44,32 +45,19 @@ export default function UserProfile() {
 
   return (
     <>
-        <h2 className="text-center mb-4">Profile</h2>
-        <div>
-        <strong>Email:</strong> {currentUser.email}
-        </div>
-        {/* <Card>
-      <Card.Body classname="card text-black bg-primary mb-3">
-        {error && <Alert variant="danger">{error}</Alert>}
-        <strong>Email:</strong> {currentUser.email}
-        {/* <div className="fields">
-      <input type="file" onChange={handleChange} />
-      <button disabled={loading || !photo} onClick={handleClick}>Upload</button>
-     <img src={photoURL} alt="Avatar" className="img-fluid rounded-circle img-thumbnail rounded float-right" />
-     </div> */}
-    {/* </Card.Body>
-    </Card> */} 
-    <div> 
-      <h3>Favorite movies HERE </h3>
-      <MovieList></MovieList>
-    </div>
-        {/* <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
-          Update Profile
-        </Link> */}
-    <div className="w-100 text-center mt-2">
-      <Button variant="link" onClick={handleLogout}>
+              <Button className="btn_logout" variant="dark" onClick={handleLogout}>
         Log Out
       </Button>
+        <h2 className="text-center mb-4">Profile</h2>
+        <div>
+        <strong className="text">Email: {currentUser.email}</strong> 
+        </div>
+    <div> 
+      <h3 className="text">Favorites </h3>
+      <MovieList></MovieList>
+    </div>
+    <div className="w-100 text-center mt-2">
+
     </div>
   </>
 )

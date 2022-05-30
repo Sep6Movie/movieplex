@@ -87,7 +87,7 @@ export default function ContentModal({ children, media_type, id }) {
       >
         {children}
       </div>
-      <Modal
+      <Modal className="modal_"
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -117,10 +117,9 @@ export default function ContentModal({ children, media_type, id }) {
                 />
 
 <div className="like_movie">
-        <IconButton color="secondary" onClick={handleNewMovieToMovieList} aria-label="like" component="span">
+        <IconButton color="error" onClick={handleNewMovieToMovieList} aria-label="like" component="span">
           <FavoriteIcon/>
         </IconButton>
-        <p>Favorite</p>
         </div>
 <div className="ContentModal__about">
                   <span className="ContentModal__title">
@@ -132,6 +131,8 @@ export default function ContentModal({ children, media_type, id }) {
                     ).substring(0, 4)}
                     )
                   </span>
+                  <br></br>
+
                   {content.tagline && (
                     <i className="tagline">{content.tagline}</i>
                   )}
@@ -148,13 +149,14 @@ export default function ContentModal({ children, media_type, id }) {
   <CarouselDir media_type={media_type} id={id}></CarouselDir>
 </div>
                   <Button
+                  className="btn_video"
                     variant="contained"
                     startIcon={<YouTubeIcon />}
-                    color="secondary"
+                    color="error"
                     target="__blank"
                     href={`https://www.youtube.com/watch?v=${video}`}
                   >
-                    Watch the Trailer
+                    Watch Trailer
                   </Button>
                 </div>
       </div>)}

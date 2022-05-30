@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
+.ContentModal__title {
+  height: 12%;
+  font-size: 5vw;
+  padding-top: 100px;
+  align-items: center;
+}
+
+.btn_video{
+  color: black;
+  background-color: black;
+}
 .tagline {
     padding-bottom: 10px;
     padding-top: 20px;
@@ -7,18 +18,19 @@
   }
 
   .ContentModal__portrait {
-    object-fit: 80%;
     border-radius: 10px;
     float: left;
     padding-right: 10px ;
   }
 
   .ContentModal__landscape {
-    object-fit: contain;
     border-radius: 10px;
   }
 
   .ContentModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     width: 100%;
     overflow-y: scroll;
@@ -40,14 +52,6 @@
     font-weight: 200;
   }
 
-  .ContentModal__title {
-    height: 12%;
-    font-size: 5vw;
-    display: flex;
-    align-items: center;
-    padding-top: 30px;
-    justify-content: center;
-  }
 
   .ContentModal__description {
     display: flex;
@@ -60,9 +64,13 @@
   }
 
   .like_movie{
-    border-radius: 10px;
-    float: top;
-    padding: 20px;
+    border-radius: 50px;
+    border: 2px solid #bebebe;
+    background: #bebebe;
+    padding: 5px;
+    width: fit-content;
+    height: fit-content;
+    float: right;
   }
 
   @media (min-width: 835px) {
