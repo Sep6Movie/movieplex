@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import {Card, Button, Alert, Image} from 'react-bootstrap'
 import { upload, useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
-import NavUser from "../NavUser"
+import Nav from "../Nav"
 import MovieList from "../MovieList/MovieList"
 
 export default function UserProfile() {
@@ -44,7 +44,6 @@ export default function UserProfile() {
 
   return (
     <>
-    <NavUser/>
         <h2 className="text-center mb-4">Profile</h2>
         <div>
         <strong>Email:</strong> {currentUser.email}

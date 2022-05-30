@@ -15,11 +15,13 @@ import Nav from './Nav';
 function App() {
   return (
     <div className="app">
+   
         <Router>
+        <Nav></Nav>
       <AuthProvider>
         <Switch>
         <Route exact path="/" element={<Dashboard />} />
-        <Route exact path="/movies" element={<Movies />} />
+        <Route exact path="/movies" element={<Movies/>} />
         <Route exact path="/series" element={<Series />} />
         <Route path="signup" element={<SignUp/>} />
         <Route path="login" element={<Login/>} />

@@ -4,7 +4,7 @@ import PageManager from "../PageManager";
 import MovieContent from "../MovieContent";
 import Genres from "../Genres";
 import useGenre from "../hooks/useGenre";
-
+import Nav from "../Nav"
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 

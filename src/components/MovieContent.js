@@ -21,7 +21,6 @@ const MovieContent = ({
         />
         <b className="title">{title}</b>
         <span className="subTitle">
-        {media_type === "tv" ? "TV Series" : "Movie"}
         <span className="dateTitle">{date}</span>
         <div className='votebox'>{vote_average} </div>
         <p className='votecount'>{vote_count}</p>

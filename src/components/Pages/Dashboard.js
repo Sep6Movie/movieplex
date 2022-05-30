@@ -28,7 +28,6 @@ const Dashboard = () => {
 
   return (
     <>
-    <Nav></Nav>
     <div>
       <span className="pageTitle">Trending</span>
       <div className="dashboard">

@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import "./ContentModal.css";
 import { img_500, unavailableLandscape, unavailable} from "../../config";
-import { ClassNames } from "@emotion/react";
+import { Backdrop } from "@mui/material";
 import Carousel from "../ActorCarousel"
 import CarouselDir from "../DirectorCarousel"
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -79,19 +79,21 @@ export default function ContentModal({ children, media_type, id }) {
 
   return (
     <>
-    <div className="media" type="button"  
-    onClick={handleOpen}>
-      {children}
-    </div>
-    <Modal
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      className={ClassNames.modal}
-      open={open}
-      onClose={handleClose}
-      closeAfterTransition
-      
-    >
+    <div
+        className="media"
+        style={{ cursor: "pointer" }}
+        color="inherit"
+        onClick={handleOpen}
+      >
+        {children}
+      </div>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+      >
       <Box sx={style.paper}>
      { content && ( 
      <div className="ContentModal">
@@ -114,12 +116,12 @@ export default function ContentModal({ children, media_type, id }) {
                   className="ContentModal__landscape"
                 />
 
-<label htmlFor="icon-button-file">
+<div className="like_movie">
         <IconButton color="secondary" onClick={handleNewMovieToMovieList} aria-label="like" component="span">
           <FavoriteIcon/>
         </IconButton>
-        <p>Like me!</p>
-      </label>
+        <p>Favorite</p>
+        </div>
 <div className="ContentModal__about">
                   <span className="ContentModal__title">
                     {content.name || content.title} (
