@@ -24,7 +24,7 @@ export default function SimpleBottomNavigation() {
       navigate("/profile");
     } else if (value === 4) {
       navigate("/search");
-    }
+    } 
   }, [value, navigate]);
 
   return (

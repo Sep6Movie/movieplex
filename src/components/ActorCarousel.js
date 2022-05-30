@@ -31,7 +31,7 @@ const Gallery = ({ id, media_type }) => {
       items: 5,
     },
     512: {
-      items: 6,
+      items: 8,
     },
     1024: {
       items: 8,

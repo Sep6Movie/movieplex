@@ -1,6 +1,7 @@
 .carouselItem {
     display: flex;
     flex-direction: column;
+    object-fit: contain;
     padding: 10px;
   }
   .carouselItem__img {
@@ -10,7 +11,7 @@
   }
 
   .carouselItem__txt {
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .carouselItem__job {

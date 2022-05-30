@@ -10,7 +10,6 @@ const MovieContent = ({
     date,
     media_type,
     vote_average,
-    vote_count,
   }) => {
     return (
         <ContentModal media_type={media_type} id={id}>
@@ -22,8 +21,7 @@ const MovieContent = ({
         <b className="title">{title}</b>
         <span className="subTitle">
         <span className="dateTitle">{date}</span>
-        <div className='votebox'>{vote_average} </div>
-        <h1 className='votecount'>{vote_count}</h1>
+        <div className='votebox'>{vote_average}</div>
         </span>
         </ContentModal>
     );

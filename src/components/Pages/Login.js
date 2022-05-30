@@ -29,7 +29,6 @@ export default function Login() {
 
   return (
     <>
-      
         <Card.Body className="card_login">
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
@@ -53,8 +52,6 @@ export default function Login() {
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
         </Card.Body>
-      
-     
     </>
   )
 }
