@@ -5,7 +5,7 @@ import { collection, onSnapshot } from '@firebase/firestore'
 import axios from "axios";
 import { useAuth } from "../../contexts/AuthContext"
 import MovieContent from '../MovieContent';
-
+import ContentModal from '../Content/ContentModal';
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
 function MovieList({media_type, id}) {
@@ -43,9 +43,9 @@ function MovieList({media_type, id}) {
   return (
       <>
      {/* Mapper user og movieID fra firebase i et film Modal.*/}
-        <div className="dashboard"> 
+        <div className="trending"> 
           {favorites.map((favorite) => (
-              <MovieContent 
+              <ContentModal 
               key={favorite.id}
               id={favorite.movieID}
               poster={favorite.poster_path}
@@ -56,21 +56,7 @@ function MovieList({media_type, id}) {
               />
             ))}
             </div>
-     
-      {/* Mapper user og movieID fra firebase */}
-    <div className="dashboard">
-        {favorites.map((favorite) => ( 
-           
-            <div key={favorite.id}>
-            movieID={favorite.movieID}
-            <br></br>
-            userUID={favorite.userUID }
-            <br></br>
-            movielistID={favorite.id}
-            </div>
-        ))}
-    </div>
-    
+       
     </>
   )
 }
