@@ -40,7 +40,6 @@ export default function ContentModal({ children, media_type, id }) {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
-  const [favorites, setFavorites] = useState([]);
   const { currentUser } = useAuth()
 
   const handleOpen = () => {
@@ -55,23 +54,19 @@ export default function ContentModal({ children, media_type, id }) {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${API_KEY}&language=en-US`
     );
-
     setContent(data);
-    // console.log(data);
   };
 
   const fetchVideo = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${API_KEY}&language=en-US`
     );
-
     setVideo(data.results[0]?.key);
   };
 
   const handleNewMovieToMovieList = async () => {
     const movieID = content.id;
     const userUID = currentUser.uid;
-
     const collectionRef = collection(db, "movielist");
     const payload = {movieID, userUID }
     await addDoc(collectionRef, payload);
@@ -84,7 +79,6 @@ export default function ContentModal({ children, media_type, id }) {
 
   return (
     <>
-  
     <div className="media" type="button"  
     onClick={handleOpen}>
       {children}
@@ -110,7 +104,6 @@ export default function ContentModal({ children, media_type, id }) {
                   alt={content.name || content.title}
                   className="ContentModal__portrait"
                 />
-
 <img
                   src={
                     content.backdrop_path
@@ -140,14 +133,10 @@ export default function ContentModal({ children, media_type, id }) {
                   {content.tagline && (
                     <i className="tagline">{content.tagline}</i>
                   )}
-
                   <span className="ContentModal__description">
                     {content.overview}
                   </span>
                 <br></br>
-
-
-
                     <h6>Cast</h6>
 <div>
   <Carousel media_type={media_type} id={id}></Carousel>
@@ -166,12 +155,8 @@ export default function ContentModal({ children, media_type, id }) {
                     Watch the Trailer
                   </Button>
                 </div>
-                
       </div>)}
-      
-
       </Box>
-
     </Modal>
   </>
   );

@@ -3,25 +3,24 @@ import db from "../../firebase"
 import { useEffect, useState } from 'react'
 import { collection, onSnapshot } from '@firebase/firestore'
 import axios from "axios";
-import MovieContent from '../MovieContent';
 import { useAuth } from "../../contexts/AuthContext"
-import IconButton from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import MovieContent from '../MovieContent';
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
-function MovieList() {
-    const [favorites, setFavorites] = useState([{name : "Loading ...", id: "loading"}]);
+function MovieList({media_type, id}) {
+    const [favorites, setFavorites] = useState([]);
     const [movieID, setMovieId] = useState("");
     const [content, setContent] = useState([]);
     const { currentUser } = useAuth()
+    const [type, setType] = useState(0);
 
-    useEffect(
-        () => 
+    useEffect(() => {
         onSnapshot(collection(db, "movielist"), (snapshot) => 
         setFavorites(snapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
-        ),
-        [], 
+        ) 
+    fetchMoviesForUser() }, [], 
+        console.log(movieID),
     );
 
     const fetchMoviesForUser = async () => {
@@ -30,8 +29,9 @@ function MovieList() {
             if(currentUser.userUID == favorites.userUID)
             {
         const { data } = await axios.get(
-          `https://api.themoviedb.org/3/movie/${favorites.movieID}?api_key=${API_KEY}&language=en-US`
+            `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${API_KEY}&language=en-US`
         );
+
         setContent(data.results);
         console.log(data)
     }
@@ -39,23 +39,25 @@ function MovieList() {
         console.error(error);
       }
       };
-    // const handleNewMovieToMovieList = async () => {
-    //     const movieID = content.id;
-    //     const userUID = currentUser.uid;
-    
-    //     const collectionRef = collection(db, "movielist");
-    //     const payload = {movieID, userUID }
-    //     await addDoc(collectionRef, payload);
-    //   }
-    
+
   return (
       <>
-   <label htmlFor="icon-button-file">
-        <IconButton color="secondary" onClick={fetchMoviesForUser} aria-label="like" component="span">
-          <FavoriteIcon/>
-        </IconButton>
-        <p>Like me!</p>
-      </label>
+     {/* Mapper user og movieID fra firebase i et film Modal.*/}
+        <div className="dashboard"> 
+          {favorites.map((favorite) => (
+              <MovieContent 
+              key={favorite.id}
+              id={favorite.movieID}
+              poster={favorite.poster_path}
+              title={favorite.title || favorite.name}
+              date={favorite.first_air_date || favorite.release_date}
+              media_type="movie"
+              vote_average={favorite.vote_average}
+              />
+            ))}
+            </div>
+     
+      {/* Mapper user og movieID fra firebase */}
     <div className="dashboard">
         {favorites.map((favorite) => ( 
            
@@ -76,8 +78,3 @@ function MovieList() {
 export default MovieList
 
 
-{/* <MovieContent
-            key={favorite.id}
-            id={favorite.movieID}
-            title={favorite.movieID}
-              /> */}

@@ -9,35 +9,17 @@ const API_KEY="credits?api_key=e07a0c394bdeedde413d9b1e4ee9357e"
 
 const MovieBox = ({titel, name, poster_path, vote_average, vote_count, release_date, overview})=> {
   const [show, setShow]=useState(false);
-  const [actors, findActor] = useState([]);
 
   const handleShow=()=>setShow(true);
   const handleClose=()=>setShow(false);
 
-  async function findActors(){
-    try{
-      const url=`https://api.themoviedb.org/3/movie/4555/credits?api_key=e07a0c394bdeedde413d9b1e4ee9357e`;
-      const res= await fetch(url);
-      const data= await res.json();
-      console.log(data);
-      findActor(data.results);
-      setShow(true);
-    }
-    catch(e){
-      console.log("findActor " + e);
-    }
-  }
-
-  function likeMovie() {
-    console.log("CLICKED LIKE ");
-}
 
   return (
 
     <div className="card text-center bg-secondary mb-3" >
     <div className="card-body">
      <img className="card-img-top" src={`${base_url}${poster_path}`} alt="poster not found" />
-     <button type="button" className="btn btn-dark" onClick={findActors} >View More</button>
+     <button type="button" className="btn btn-dark" >View More</button>
       <Modal show={show} onHide={handleClose}>
      <Modal.Header closeButton>
        <Modal.Title></Modal.Title>
