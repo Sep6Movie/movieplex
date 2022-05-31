@@ -4,10 +4,8 @@ import PageManager from "../PageManager";
 import MovieContent from "../MovieContent";
 import Genres from "../Genres";
 import useGenre from "../hooks/useGenre";
-import Nav from "../Nav"
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
-
 
 const Movies = () => {
   const [genres, setGenres] = useState([]);
@@ -18,7 +16,7 @@ const Movies = () => {
   const genreforURL = useGenre(selectedGenres);
 
   const fetchMovies = async () => {
-const {data} = await axios.get(
+  const {data} = await axios.get(
   `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`);
 
   setContent(data.results);
@@ -29,7 +27,6 @@ const {data} = await axios.get(
     window.scroll(0, 0);
     fetchMovies();
   }, [genreforURL, page]);
-
 
   return (
     <div>
@@ -58,7 +55,6 @@ const {data} = await axios.get(
         <PageManager setPage={setPage} numOfPages={numOfPages} />
       )}
     </div>
-    
   );
 };
 

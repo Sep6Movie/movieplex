@@ -16,11 +16,9 @@ export default function Signup() {
   
     async function handleSubmit(e) {
       e.preventDefault()
-  
       if (passwordRef.current.value !== passwordConfirmRef.current.value) {
         return setError("Passwords do not match")
       }
-  
       try {
         setError("")
         setLoading(true)
@@ -55,9 +53,9 @@ export default function Signup() {
               </Button>
             </Form>
             <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In</Link>        </div>
+        Already have an account? <Link to="/login">Log In</Link>
+        </div>
           </Card.Body>
-        
       </>
     )
   }
