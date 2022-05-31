@@ -42,10 +42,20 @@
   }
 
   .votebox{
+    float: left;
       outline: beige;
       border-radius: 10px;
       width: fit-content;
       padding: 8px;
      font-size: small;
       background-color: rgb(255, 187, 0);
+  }
+  .votes{
+    display: flexbox;
+    float: right;
+    text-align: center;
+    padding-top: 10px;
+    color: gray;
+    font-size: smaller;
+    
   }
