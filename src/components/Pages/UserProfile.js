@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
-import {Card, Button, Alert, Image} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 import { upload, useAuth } from "../../contexts/AuthContext"
-import { Link, useNavigate } from "react-router-dom"
-import Nav from "../Nav"
+import {useNavigate } from "react-router-dom"
 import MovieList from "../MovieList/MovieList"
 import "./UserProfile.css"
 
@@ -16,7 +15,6 @@ export default function UserProfile() {
 
     async function handleLogout() {
         setError("")
-    
         try {
           await logout()
           navigate("/login")
@@ -42,10 +40,9 @@ export default function UserProfile() {
         }
       }, [currentUser])
     
-
   return (
     <>
-              <Button className="btn_logout" variant="dark" onClick={handleLogout}>
+      <Button className="btn_logout" variant="dark" onClick={handleLogout}>
         Log Out
       </Button>
         <h2 className="text-center mb-4">Profile</h2>
@@ -57,7 +54,6 @@ export default function UserProfile() {
       <MovieList></MovieList>
     </div>
     <div className="w-100 text-center mt-2">
-
     </div>
   </>
 )

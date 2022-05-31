@@ -2,3 +2,8 @@
     display: flex;
     margin: 15px 0;
   }
+
+  .searchBox{
+    font-size: larger;
+    font-style: bold;
+  }

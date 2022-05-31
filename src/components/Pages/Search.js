@@ -26,13 +26,12 @@ const Search = () => {
       palette: {
         type: "dark",
         primary: {
-          main: "#fff",
+          main: "#000000",
         },
       },
     });
   
     const fetchSearch = async () => {
-      
       try {
         const { data } = await axios.get(
           `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
@@ -79,8 +78,8 @@ const Search = () => {
             style={{ paddingBottom: 5 }}
             aria-label="disabled tabs example"
           >
-            <Tab style={{ width: "50%" }} label="Search Movies" />
-            <Tab style={{ width: "50%" }} label="Search TV Series" />
+            <Tab style={{ width: "100%" }} label="Search Movies" />
+            <Tab style={{ width: "100%"}} label="Search TV Series" />
           </Tabs>
         </ThemeProvider>
         <div className="dashboard">

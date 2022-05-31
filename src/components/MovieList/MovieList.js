@@ -5,7 +5,6 @@ import { collection, onSnapshot } from '@firebase/firestore'
 import axios from "axios";
 import { useAuth } from "../../contexts/AuthContext"
 import MovieContent from '../MovieContent';
-import ContentModal from '../Content/ContentModal';
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
 function MovieList({media_type, id}) {
@@ -49,7 +48,7 @@ function MovieList({media_type, id}) {
               poster={favorite.poster_path}
               title={favorite.title || favorite.name}
               date={favorite.first_air_date || favorite.release_date}
-              media_type="movie"
+              media_type={"movie" || "tv"}
               vote_average={favorite.vote_average}
               />
             ))}
