@@ -5,11 +5,10 @@ import { Link, useNavigate } from "react-router-dom"
 import "./Authentication.css"
 
 export default function Signup() {
-    const diaplayNameRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup , currentUser } = useAuth()
+    const { signup } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()

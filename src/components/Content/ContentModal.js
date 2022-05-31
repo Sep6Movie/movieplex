@@ -13,6 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import db from "../../firebase"
 import { collection , addDoc} from '@firebase/firestore'
 import { useAuth } from "../../contexts/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
 
@@ -39,6 +40,7 @@ export default function ContentModal({ children, media_type, id }) {
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
   const { currentUser } = useAuth()
+  const navigate = useNavigate()
 
   const handleOpen = () => {
     setOpen(true);
@@ -63,11 +65,16 @@ export default function ContentModal({ children, media_type, id }) {
   };
 
   const handleNewMovieToMovieList = async () => {
+    if(currentUser!=null){
     const movieID = content.id;
     const userUID = currentUser.uid;
     const collectionRef = collection(db, "movielist");
     const payload = {movieID, userUID }
     await addDoc(collectionRef, payload);
+  }
+ else {
+  navigate("/signup")
+ }
   }
 
   useEffect(() => {
