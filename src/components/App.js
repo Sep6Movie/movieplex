@@ -21,10 +21,10 @@ function App() {
         <Route exact path="/" element={<Dashboard />} />
         <Route exact path="/movies" element={<Movies/>} />
         <Route exact path="/series" element={<Series />} />
-        <Route exact path="signup" element={<SignUp/>} />
-        <Route exact path="login" element={<Login/>} />
-        <Route path="profile" element={<UserProfile/>} />
-        <Route path="search" element={<Search/>} />
+        <Route exact path="/signup" element={<SignUp/>} />
+        <Route exact path="/login" element={<Login/>} />
+        <Route exact path="/profile" element={<UserProfile/>} />
+        <Route exact path="/search" element={<Search/>} />
         </Switch>
       </AuthProvider>
       </Router>
