@@ -38,9 +38,6 @@ export function AuthProvider({ children }) {
         signup,
         login,
         logout,
-        // resetPassword,
-        // updateEmail,
-        // updatePassword
       }
 
       return (
@@ -50,7 +47,6 @@ export function AuthProvider({ children }) {
       )
 }
 
-// Storage
 export async function upload(file, currentUser, setLoading) {
   const storage = getStorage();
   

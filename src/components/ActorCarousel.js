@@ -6,8 +6,6 @@ import { img_300, noPicture } from "../config";
 import "./Carousel.css";
 
 const API_KEY="e07a0c394bdeedde413d9b1e4ee9357e"
-
-
 const handleDragStart = (e) => e.preventDefault();
 
 const Gallery = ({ id, media_type }) => {

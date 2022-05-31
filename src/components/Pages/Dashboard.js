@@ -14,10 +14,7 @@ const Dashboard = () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${page}`
     );
-   
     setContent(data.results);
-    console.log(data)
-    // console.table(data);
   };
 
   useEffect(() => {

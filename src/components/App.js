@@ -11,11 +11,9 @@ import { BrowserRouter as Router, Routes as Switch, Route,} from "react-router-d
 import Search from './Pages/Search';
 import Nav from './Nav';
 
-
 function App() {
   return (
     <div className="app">
-   
         <Router>
         <Nav></Nav>
       <AuthProvider>

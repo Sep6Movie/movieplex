@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import "./ContentModal.css";
 import { img_500, unavailableLandscape, unavailable} from "../../config";
-import { Backdrop } from "@mui/material";
 import Carousel from "../ActorCarousel"
 import CarouselDir from "../DirectorCarousel"
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -36,7 +35,6 @@ const style = {
 };
 
 export default function ContentModal({ children, media_type, id }) {
-  // const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
@@ -165,12 +163,3 @@ export default function ContentModal({ children, media_type, id }) {
   </>
   );
 }
-
-
-{/* <Typography id=
-<Fade in={open}>
-  <div sx={style.paper} >
-  <h2 id="transition-modal-title">Transition modal</h2>
-  <p id="transition-modal-description">react-transition-grpup animates me.</p>
-  </div>
-</Fade> */}

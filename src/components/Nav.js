@@ -8,7 +8,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import {useNavigate } from "react-router-dom"
 import SlideshowIcon from '@mui/icons-material/Slideshow';
 
-
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const navigate = useNavigate()
@@ -34,7 +33,6 @@ export default function SimpleBottomNavigation() {
         setValue(newValue);
       }}
       showLabels
-      
     >
       <BottomNavigationAction style={{ color: "black" }} label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction style={{ color: "black" }} label="Movies" icon={<MovieIcon />} />
