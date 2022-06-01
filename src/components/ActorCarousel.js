@@ -26,13 +26,13 @@ const Gallery = ({ id, media_type }) => {
 
   const responsive = {
     0: {
-      items: 5,
+      items: 8,
     },
     512: {
       items: 8,
     },
     1024: {
-      items: 8,
+      items: 14,
     },
   };
 

@@ -81,7 +81,7 @@ export default function ContentModal({ children, media_type, id }) {
     fetchData();
     fetchVideo();
   }, []);
-
+  
   return (
     <>
     <div
