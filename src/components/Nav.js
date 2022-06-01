@@ -7,13 +7,19 @@ import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from '@mui/icons-material/Home';
 import {useNavigate } from "react-router-dom"
 import SlideshowIcon from '@mui/icons-material/Slideshow';
+import { useAuth } from "../contexts/AuthContext"
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
+  const { currentUser } = useAuth()
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (value === 0) {
+    if(currentUser===null)
+    {
+      navigate("/signup");
+    }
+    else if (value === 0) {
       navigate("/");
     } else if (value === 1) {
       navigate("/movies");

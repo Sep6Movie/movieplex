@@ -7,7 +7,7 @@ import Series from './Pages/Series';
 import UserProfile from './Pages/UserProfile';
 import Dashboard from './Pages/Dashboard';
 import { AuthProvider } from '../contexts/AuthContext';
-import { BrowserRouter as Router, Routes as Switch, Route,} from "react-router-dom";
+import { HashRouter as Router, Routes as Switch, Route,} from "react-router-dom";
 import Search from './Pages/Search';
 import Nav from './Nav';
 
@@ -15,16 +15,16 @@ function App() {
   return (
     <div className="app">
         <Router>
-        <Nav></Nav>
       <AuthProvider>
+        <Nav></Nav>
         <Switch>
-        <Route exact path="/" element={<Dashboard />} />
-        <Route exact path="/movies" element={<Movies/>} />
-        <Route exact path="/series" element={<Series />} />
-        <Route exact path="/signup" element={<SignUp/>} />
-        <Route exact path="/login" element={<Login/>} />
-        <Route exact path="/profile" element={<UserProfile/>} />
-        <Route exact path="/search" element={<Search/>} />
+        <Route path="/" element={<Dashboard/>} />
+        <Route path="/movies" element={<Movies/>} />
+        <Route path="/series" element={<Series/>} />
+        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/profile" element={<UserProfile/>} />
+        <Route path="/search" element={<Search/>} />
         </Switch>
       </AuthProvider>
       </Router>

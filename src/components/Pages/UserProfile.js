@@ -34,7 +34,6 @@ export default function UserProfile() {
       }
 
       useEffect(() => {
-        console.log(currentUser)
         if (currentUser?.photoURL) {
           setPhotoURL(currentUser.photoURL);
         }
